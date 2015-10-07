@@ -17,6 +17,14 @@ h6 {
 .clear-fix {
   overflow: auto;
 }
+#workExperience{flex-wrap: wrap;
+  width: 100%;  
+}
+
+.work-entry{
+  flex-wrap: wrap;
+  width: calc(100%/5.0);  
+}
 
 .education-entry,
 .work-entry,

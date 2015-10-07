@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Places I've Lived</title>
+    
+	<!-- be sure that you specify the size of the div that contains the map: -->
+	<style>	
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+var map;
+function initMap() {
+  <!-- centering the map: -->
+  var centerMap = {lat:40.397, lng: -110.644};
+
+  <!-- listing the locations and their coordinates: -->
+  var orange = {lat:30.1092, lng: -93.7592};
+  var houston = {lat: 29.7604, lng: -95.3698};
+  var sanAntonio = {lat: 29.4167, lng: -98.5000};
+  var portArthur = {lat: 29.8850, lng: -93.9400};
+  var anchorage = {lat: 61.2167, lng: -149.9000};
+  
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 3,
+    center: centerMap
+  });
+  
+  <!-- adding the location markers on the map: -->
+  addMarker(orange, map, "Orange, Texas");
+  addMarker(houston, map, "Houston, Texas");
+  addMarker(sanAntonio, map, "San Antonio, Texas");
+  addMarker(portArthur, map, "Port Arthur, Texas");
+  addMarker(anchorage, map, "Anchorage, Alaska");
+  
+}
+
+<!-- creates the location markers on the map: -->
+function addMarker(location, map, msg){
+	var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+    title: msg
+  })
+
+
+}
+
+    </script>
+		<!-- okay for this script tag that contains the link to the google maps api,
+		     be sure that you 1) use the appropriate API key (i.e. your own API key
+		     downloaded from the google maps api website and 2)set the 'sensor'
+		     parameter to 'false'. Oh! and be sure to separate the parameters by '&' -->
+		<script src ="https://maps.googleapis.com/maps/api/js?key=AIzaSyCM5LYVQZ2eC5USCY8kF6JtBYRKaJ1wd0I&sensor=false&callback=initMap"></script>
+  </body>
+</html>

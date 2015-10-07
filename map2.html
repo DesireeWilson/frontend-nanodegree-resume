@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Dream Destinations</title>
+		
+	<!-- be sure that you specify the size of the div that contains the map: -->	
+    <style>	
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+var map;
+function initMap() {
+  <!-- centering the map: -->
+  var centerMap = {lat: 1.4667, lng: -150.644};
+
+  <!-- listing the locations and their coordinates: -->
+  var arizona = {lat: 34.0000, lng: -112.0000};
+  var california = {lat: 37.0000, lng: -120.0000};  
+  var newZealand = {lat: -42.0000, lng: 174.0000};
+  
+  
+  
+  map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 2,
+    center: centerMap
+  });
+  
+  <!-- adding the location markers on the map: -->
+  addMarker(arizona, map, "Arizona, USA");
+  addMarker(california, map, "California, USA");
+  addMarker(newZealand, map, "New Zealand");
+    
+}
+
+<!-- creates the location markers on the map: -->
+function addMarker(location, map, msg){
+	var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+    title: msg
+  })
+
+
+}
+
+    </script>
+		<!-- okay for this script tag that contains the link to the google maps api,
+		     be sure that you 1) use the appropriate API key (i.e. your own API key
+		     downloaded from the google maps api website and 2)set the 'sensor'
+		     parameter to 'false'. Oh! and be sure to separate the parameters by '&' -->
+		<script src ="https://maps.googleapis.com/maps/api/js?key=AIzaSyD593K8t81V0RCq3XrRShmYGrbKlnpAmD4&sensor=false&callback=initMap"></script>
+  </body>
+</html>
